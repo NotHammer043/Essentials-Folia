@@ -1,0 +1,32 @@
+From abf668239c7d26771e837bdf0c18a8ba55e3d306 Mon Sep 17 00:00:00 2001
+From: NotHammer043 <nothammer@nanomidi.net>
+Date: Sun, 11 Oct 2026 20:25:07 +0800
+Subject: [PATCH] Fix teleport future completing before async teleport finishes
+
+---
+ .../src/main/java/com/earth2me/essentials/AsyncTeleport.java    | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Essentials/src/main/java/com/earth2me/essentials/AsyncTeleport.java b/Essentials/src/main/java/com/earth2me/essentials/AsyncTeleport.java
+index b5e687f25..54aed84d4 100644
+--- a/Essentials/src/main/java/com/earth2me/essentials/AsyncTeleport.java
++++ b/Essentials/src/main/java/com/earth2me/essentials/AsyncTeleport.java
+@@ -294,7 +294,6 @@ public class AsyncTeleport implements IAsyncTeleport {
+                     return;
+                 }
+             }
+-            future.complete(true);
+             return;
+         }
+ 
+@@ -346,7 +345,6 @@ public class AsyncTeleport implements IAsyncTeleport {
+                     return;
+                 }
+             }
+-            future.complete(true);
+             return;
+         }
+ 
+-- 
+2.54.0.windows.1
+
